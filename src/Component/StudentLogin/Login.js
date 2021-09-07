@@ -1,20 +1,21 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Button } from 'react-bootstrap';
 
 
-const Login =()=>{
+const StudentLogin =()=>{
 
-
+const [showStudentForm ,setshowStudentForm] = useState(false)
 
     return(
         <div>
   
         <div className="row">
 
-        <div className="col-lg-6 col-md-12 col-sm-12 col-xs-12">
-              <h1 className="LoginHeading">Log in</h1>
+        <div className="col login_form">
+              <h1 className="LoginHeading">Student Log in</h1>
               <hr className= "FirstLine"/>
-              <div className="login_form">
+
+              <div>
 
               <div className="form-group">
                 <input type="email" className="email" placeholder="Email" /> <br /> <br />
@@ -32,11 +33,13 @@ const Login =()=>{
         </div>
 
 
-        <div className="col-lg-6 col-md-12 col-sm-12 col-xs-12">
-          {/* <h1 onClick={()=>{setshowForm(!showForm)}} className="SignUpHeading">Create Account</h1> */}
+        <div className="col SignUp_form">
+          <h1 onClick={()=>{setshowStudentForm(!showStudentForm)}} className="SignUpHeading">Create Account</h1>
+
           <hr className= "SecondLine"/>
 
-          {/* <div value={showForm} style={{display:showForm ? 'block': 'none'}}  className="SignUp_form"> */}
+          <div value={showStudentForm} style={{display:showStudentForm ? 'block': 'none'}}  >
+
           <div className="form-group">
           <input type="text" className="email" placeholder="First Name" /><br /> <br />
           <input type="text" className="email" placeholder="Last Name" /><br /> <br />
@@ -48,7 +51,9 @@ const Login =()=>{
         </div>
         </div>
     </div>
+    </div>
+  
     )
 }
 
-export default Login
+export default StudentLogin

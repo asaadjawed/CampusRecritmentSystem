@@ -1,10 +1,11 @@
 import React from 'react'
-import Login from '../Component/Login/Login'
-import '../Component/Login/Login.css'
+import StudentLogin from '../Component/StudentLogin/Login'
+import '../Component/StudentLogin/Login.css'
 
-const LoginForm =()=>{
+const StudentLoginForm =()=>{
 return(
-    <Login />
+    <StudentLogin />
 )
 }
-export default LoginForm
+
+export default StudentLoginForm
