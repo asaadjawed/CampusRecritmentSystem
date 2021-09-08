@@ -12,6 +12,7 @@ import UserDetailPage from './Container/UserDetail';
 import CompanyLoginForm from './Container/Company';
 import AdminLoginForm from './Container/Admin';
 import StudentDashboardPage from './Container/StudentDashboard';
+import CompanyDashboardPage from './Component/CompanyDashboard/CompanyDashboard';
 
 const App =()=> {
   return (
@@ -30,6 +31,7 @@ const App =()=> {
 
     <Route path ='/AdminLogin' component={AdminLoginForm} />
     <Route path='/StudentDashboard' component={StudentDashboardPage} />
+    <Route path='/CompanyDashboard'  component={CompanyDashboardPage}/>
 
      </Switch>
      </BrowserRouter>
