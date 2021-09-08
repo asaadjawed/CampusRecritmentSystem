@@ -31,7 +31,7 @@ const history = useHistory();
   const handleSignIn = async () => {
       signInWithEmailAndPassword(auth, studentLogInEmail, studentPass).then(res =>{
 
-          history.push()
+          history.push('/StudentDashboard')
 
       }).catch(err =>{
 
@@ -40,16 +40,16 @@ const history = useHistory();
   }
 
 
-  const signUp =() => {
-    return(
+  const handleSignUp = async () => {
+   
+      createUserWithEmailAndPassword(auth, studentSignupEmail, studentsignUpPass).then(res =>{
 
-      auth.createUserWithEmailAndPassword(studentSignupEmail, studentsignUpPass).then(res =>{
+        history.push()
 
       }).catch(err =>{
         "Error found In Signup authentication"
       })
       
-    )
   }
 
 
@@ -93,7 +93,7 @@ const history = useHistory();
           <input type="email" className="email" placeholder="Email" value={studentSignupEmail} onChange={e => setstudentSignupEmail(e.target.value)}  /><br /> <br />
                 <input type="password" className="email" placeholder="Password" value={studentsignUpPass} onChange={ e=> setstudentsignUpPass(e.target.value)} /> <br /> <br />
                 <input type="number" className="email" placeholder="Contact No" />
-                <Button type="Account" className="btn3">Create Account</Button>
+                <Button type="Account" onClick={handleSignUp} className="btn3">Create Account</Button>
               </div>
         </div>
         </div>

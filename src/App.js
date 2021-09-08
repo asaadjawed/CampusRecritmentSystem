@@ -1,6 +1,7 @@
 import logo from './logo.svg';
 import './App.css';
 
+
 import { BrowserRouter, Route, Switch } from 'react-router-dom'
 
 
@@ -9,7 +10,8 @@ import { BrowserRouter, Route, Switch } from 'react-router-dom'
 import StudentLoginForm from './Container/Login';
 import UserDetailPage from './Container/UserDetail';
 import CompanyLoginForm from './Container/Company';
-import AdminLoginForm from './Container/Admin'
+import AdminLoginForm from './Container/Admin';
+import StudentDashboardPage from './Container/StudentDashboard';
 
 const App =()=> {
   return (
@@ -27,6 +29,7 @@ const App =()=> {
     <Route path='/CompanyLogin' component={CompanyLoginForm} />
 
     <Route path ='/AdminLogin' component={AdminLoginForm} />
+    <Route path='/StudentDashboard' component={StudentDashboardPage} />
 
      </Switch>
      </BrowserRouter>
