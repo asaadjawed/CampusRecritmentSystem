@@ -3,9 +3,13 @@ import StudentDashboard from '../Component/StudentDashboard/StudentDashboard';
 import '../Component/StudentDashboard/StudentDashboard.css'
 
 
+
 const StudentDashboardPage =()=>{
     return(
+        <>
+       
             <StudentDashboard />
+            </>
     )
 }
 

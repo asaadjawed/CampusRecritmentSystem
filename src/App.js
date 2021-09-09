@@ -1,18 +1,17 @@
-import logo from './logo.svg';
-import './App.css';
-
+import React from 'react';
 
 import { BrowserRouter, Route, Switch } from 'react-router-dom'
+// import Header from './Component/Header/Header';
 
 
 
 
 import StudentLoginForm from './Container/Login';
-import UserDetailPage from './Container/UserDetail';
-import CompanyLoginForm from './Container/Company';
-import AdminLoginForm from './Container/Admin';
+// import UserDetailPage from './Container/UserDetail';
+// import CompanyLoginForm from './Container/Company';
+// import AdminLoginForm from './Container/Admin';
 import StudentDashboardPage from './Container/StudentDashboard';
-import CompanyDashboardPage from './Component/CompanyDashboard/CompanyDashboard';
+// import CompanyDashboardPage from './Component/CompanyDashboard/CompanyDashboard';
 
 const App =()=> {
   return (
@@ -23,7 +22,11 @@ const App =()=> {
 
     <Switch>
 
-   <Route exact path='/' component={UserDetailPage} />
+
+    <Route exact path='/' component={StudentLoginForm} />
+    <Route path='/StudentDashboard' component={StudentDashboardPage} />
+
+   {/* <Route exact path='/' component={UserDetailPage} />
      
     <Route path='/StudentLogin' component={StudentLoginForm} />
 
@@ -31,7 +34,7 @@ const App =()=> {
 
     <Route path ='/AdminLogin' component={AdminLoginForm} />
     <Route path='/StudentDashboard' component={StudentDashboardPage} />
-    <Route path='/CompanyDashboard'  component={CompanyDashboardPage}/>
+    <Route path='/CompanyDashboard'  component={CompanyDashboardPage}/> */}
 
      </Switch>
      </BrowserRouter>

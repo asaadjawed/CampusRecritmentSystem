@@ -1,11 +1,22 @@
-import React from 'react'
-import StudentLogin from '../Component/StudentLogin/Login'
-import '../Component/StudentLogin/Login.css'
+import React, { useState } from 'react'
+import StudentLogin from '../Component/Auth/Login'
+import Signup from '../Component/Auth/Signup'
+// import '../Component/Auth/auth.css'
 
 const StudentLoginForm =()=>{
+
+    const [showLogin, setshowLogin] = useState(true)
+
+    const handleToggle =(e)=>{
+        e.preventDefault()
+        setshowLogin(!showLogin)
+    }
+
 return(
-    <StudentLogin />
-)
+   <div>
+    {showLogin?<StudentLogin handleToggle={handleToggle} /> : <Signup handleToggle={handleToggle} />}
+    </div>
+);
 }
 
 export default StudentLoginForm

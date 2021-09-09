@@ -4,6 +4,7 @@ import { Card, Button } from 'react-bootstrap'
 import { database } from '../../firebase'
 import { refer } from '../../firebase'
 import { setData } from '../../firebase'
+import Header from '../Header/Header'
  
 
 
@@ -28,7 +29,7 @@ const StudentDashboard = () => {
     const handleSubmit =()=>{
         
         const db = database;
-        setData(refer(db, 'students/' + state.Email+ state.EPNO),
+        setData(refer(db, 'students/'),
         state);
     }
 
@@ -47,6 +48,7 @@ const StudentDashboard = () => {
 
         <div className="container">
 
+            <Header />
 
             <div>
                 <h1>STUDENT PROFILE</h1>

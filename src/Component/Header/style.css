@@ -1,0 +1,15 @@
+.HeaderDesign{
+    width: 100%;
+    background-color: #343a40;
+    color: #212529;
+}
+
+.RecruiterHeading{
+    height: 148px;
+ 
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 77px;
+}
