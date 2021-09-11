@@ -23,7 +23,7 @@ const [studentLogInEmail, setstudentLogInEmail] = useState(" ");
 const [studentPass, setstudentPass] = useState(" ");
 
 
-
+const [companyDash, setcompanyDash] = useState(" ");
 //for history push
 
 const history = useHistory();
@@ -65,6 +65,11 @@ const history = useHistory();
               </div>
 
               <input type="checkbox" className="Check" defaultValue="checkbox" /> 
+              <select type="select" value={companyDash} onChange={(e)=>setcompanyDash(e.target.value)} className="ChooseOne">
+            <option value="company"> Register as Company </option>
+            <option value="student"> Register as Student </option>
+          </select>
+
               <label className="Remember">Remember Me</label>
            
 

@@ -29,7 +29,7 @@ const StudentDashboard = () => {
     const handleSubmit =()=>{
         
         const db = database;
-        setData(refer(db, 'students/'),
+        setData(refer(db, 'students/' + state.EPNO + state.Email),
         state);
     }
 
@@ -51,7 +51,7 @@ const StudentDashboard = () => {
             <Header />
 
             <div>
-                <h1>STUDENT PROFILE</h1>
+                <h1 className="studentHeading">STUDENT PROFILE</h1>
 
                 <Card className="ProfileCard">
                     <Card.Body>
@@ -73,7 +73,7 @@ const StudentDashboard = () => {
 
                 <div className="ProfileForm">
 
-                    <div>
+                    <div className="formAligndiv">
                     EPNo: <input type="text" className="email" placeholder="FirstName" value={state.EPNO} onChange={e => setState({...state, EPNO: e.target.value})} /> <br /> <br />
                         FirstName:   <input type="text" className="email" placeholder="FirstName" value={state.FirstName} onChange={e => setState({
                             ...state,
