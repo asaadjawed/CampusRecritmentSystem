@@ -1,6 +1,6 @@
 import React from "react";
 import { useState, useContext, createContext, useEffect } from "react";
-import { useHistory } from "react-router";
+import { useHistory } from "react-router-dom";
 
 import {
   getAuth,
@@ -33,11 +33,12 @@ const GlobalProvider = ({ children }) => {
     //generate key from the login details
 
     const userId = HandleGenerateUniqueKey(
-      userData.accountType,
+      userData.AccountType,
       userData.email
     );
 
     //get the user data from firebase
+    console.log(userId);
 
     get(child(dbref, `user/${userId}`))
       .then((snapshot) => {
@@ -95,13 +96,13 @@ const GlobalProvider = ({ children }) => {
 
     createUserWithEmailAndPassword(
       auth,
-      userDetails.email,
-      userDetails.password
+      userDetails.Email,
+      userDetails.Pass,
     )
       .then((userCredential) => {
         const key = HandleGenerateUniqueKey(
-          userDetails.accountType,
-          userDetails.email
+          userDetails.AccountType,
+          userDetails.Email
         );
 
         const db = getDatabase();
@@ -137,7 +138,7 @@ const GlobalProvider = ({ children }) => {
   }
 
   useEffect(() => {
-    const user = JSON.parse(localStorage.getItem("user"));
+    const user = JSON.parse(localStorage.getItem("users"));
     if (user) {
       setuser(user);
     }

@@ -8,7 +8,7 @@ import "../Auth/auth.css";
 
 import { GlobalContext } from "../../Context/GlobalContext";
 import { Link } from "react-router-dom";
-import { Alert } from "bootstrap";
+// import { Alert } from "react-bootstrap";
 
 const Signup = () => {
   const {handleSignupUser, error} = useContext(GlobalContext);
@@ -32,7 +32,7 @@ const Signup = () => {
           Create Account
         </h1>
 
-        {error && <Alert variant="danger">{error}</Alert>}
+        {/* {error && <Alert variant="danger">{error}</Alert>} */}
 
 
         <form 
