@@ -1,95 +1,91 @@
-import React, { useState } from 'react';
-import { Button } from 'react-bootstrap';
-import { useHistory } from 'react-router';
-import { auth } from '../../firebase';
-import { signInWithEmailAndPassword } from "firebase/auth";
-import Header from '../Header/Header';
-import '../Header/style.css';
+import React, { useState, useContext } from "react";
+import { Button } from "react-bootstrap";
+import Header from "../Header/Header";
+import "../Header/style.css";
 
-import '../Auth/auth.css';
+import "../Auth/auth.css";
 
+import { GlobalContext } from "../../Context/GlobalContext";
+import { Link } from "react-router-dom";
+import { Alert } from "bootstrap";
 
+const LoginForm = () => {
 
+  const {HandleLoginUser, error } = useContext(GlobalContext);
+  const [user, setuser] = useState({
+    email: "",
+    password: "",
+    AccountType: "",
+  });
 
+  return (
+    <div>
+      <Header />
 
-
-
-const StudentLogin =(props)=>{
-
-// const [showStudentForm ,setshowStudentForm] = useState(false);
-
-//for signin student
-const [studentLogInEmail, setstudentLogInEmail] = useState(" ");
-const [studentPass, setstudentPass] = useState(" ");
-
-
-const [companyDash, setcompanyDash] = useState(" ");
-//for history push
-
-const history = useHistory();
-
-
-  const handleSignIn = async () => {
-      signInWithEmailAndPassword(auth, studentLogInEmail, studentPass).then(res =>{
-
-          history.push('/StudentDashboard')
-          console.log(res);
-
-      }).catch(err =>{
-
-        "Errror found In SignIn authentication"
-      })
-  }
-
-
-
-
-
-    return(
-
-
-        <div>
-          <Header />
-  
-        <div>
-
+      <div className="LoginCOntainer">
         <div className="login_form">
-              <h1 className="LoginHeading">Log in</h1>
-              <hr className= "FirstLine"/>
+          <h1 className="LoginHeading">Log in</h1>
+          <hr className="FirstLine" />
+          {error && <Alert variant="danger">{error}</Alert>}
 
-              <div>
+          <form 
+            onSubmit={(e)=>{
+              e.preventDefault()
+              HandleLoginUser(user);
+            }}
+          >
 
-              <div className="form-group">
-                <input type="email"  className="email" placeholder="Email" value={studentLogInEmail} onChange={ e  => setstudentLogInEmail (e.target.value)} /> <br /> <br />
-                <input type="password" className="email" placeholder="Password" value={studentPass} onChange={ e => setstudentPass( e.target.value)} />
-              </div>
+          <div>
+            <div className="form-group">
+              <input
+                type="email"
+                className="email"
+                placeholder="Email"
+                onChange={(e) => setuser({ ...user, email: e.target.value })}
+              />
+              <br /> <br />
+              <input
+                type="password"
+                className="email"
+                placeholder="Password"
+                onChange={(e) => setuser({ ...user, password: e.target.value })}
+              />
+                     <br /> <br />
+            
 
-              <input type="checkbox" className="Check" defaultValue="checkbox" /> 
-              <select type="select" value={companyDash} onChange={(e)=>setcompanyDash(e.target.value)} className="ChooseOne">
-            <option value="company"> Register as Company </option>
-            <option value="student"> Register as Student </option>
-          </select>
+            <select
+              type="select"
+              onChange={(e) =>
+                setuser({ ...user, AccountType: e.target.value })
+              }
+              className="ChooseOne"
+            >
+              <option>Open this select menu</option>
+              <option value="admin">Admin</option>
+              <option value="company"> Register as Company </option>
+              <option value="student"> Register as Student </option>
+            </select>
+            </div>
 
-              <label className="Remember">Remember Me</label>
-           
+            <p className="register-text">
+              If you don't have an account register{" "}
+              <Link to="/signup">here!</Link>
+            </p>
 
-        <div className="AllBtn">
-              <Button type="Login" onClick={handleSignIn} className="btn">Login</Button>
-              <Button onClick={props.handleToggle} className="btn"> SignUp </Button>
-              </div>
-          
-              <br />
-              <a href="#" className="forget">Forget Password?</a>
-              
+            <Button
+              type="submit"
+              size="lg"
+              className="submit-btn border-0 shadow-none"
+            >
+              Login
+            </Button>
+          </div>
+          </form>
 
-
-
-              </div>
-        </div>
+      </div>
     </div>
-    </div>
-  
-    )
-}
+   </div>
+  );
+};
 
-export default StudentLogin
+export default LoginForm;

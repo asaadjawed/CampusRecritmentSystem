@@ -1,142 +1,137 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import { Button } from "react-bootstrap";
 import { useHistory } from "react-router";
-import { auth } from "../../firebase";
-import { createUserWithEmailAndPassword } from "firebase/auth";
 import Header from "../Header/Header";
 import "../Header/style.css";
 
 import "../Auth/auth.css";
 
+import { GlobalContext } from "../../Context/GlobalContext";
+import { Link } from "react-router-dom";
+import { Alert } from "bootstrap";
 
-
-import { database } from '../../firebase'
-import { refer } from '../../firebase'
-import { setData } from '../../firebase'
-
-
-const Signup = (props) => {
-  // const [showStudentForm ,setshowStudentForm] = useState(false);
-
-const [state, setState] = useState({
-
+const Signup = () => {
+  const {handleSignupUser, error} = useContext(GlobalContext);
+  const [user, setuser] = useState({
     FirstName: "",
     LastName: "",
     Email: "",
     Pass: "",
-    Select: "",
+    AccountType: "",
+  });
 
-
-})
-
-
-  const history = useHistory();
-  //for signup student
-  const [studentSignupEmail, setstudentSignupEmail] = useState(" ");
-  const [studentsignUpPass, setstudentsignUpPass] = useState(" ");
-
-  // const [companyDash, setcompanyDash] = useState(" ")
-
-  const handleSignUp = async () => {
-
-
-    // console.log(state)
-    // const db = database;
-    // setData(refer(db, 'students/' + state.Select + state.FirstName),
-    // state);
-
-    createUserWithEmailAndPassword(auth, state.Email, state.Pass)
-      .then((res) => {
-        history.push('/');
-       
-      })
-      .catch((err) => {
-        "Error found In Signup authentication";
-      });
-  };
   return (
-    <>
+    <div>
       <Header />
 
+    <div className="SignUPcontainer">
       <div className="SignUp_form">
         <h1
-          // onClick={() => {
-          //   setshowStudentForm(!showStudentForm);
-          // }}
           className="SignUpHeading"
         >
           Create Account
         </h1>
 
+        {error && <Alert variant="danger">{error}</Alert>}
+
+
+        <form 
+            onSubmit={(e)=>{
+              e.preventDefault()
+              handleSignupUser(user);
+            }}
+          >
+
         <hr className="SecondLine" />
 
-        {/* <div
-          value={showStudentForm}
-          style={{ display: showStudentForm ? "block" : "none" }}
-        > */}
         <div className="form-group">
-          <input type="text" className="email"  placeholder="First Name" value={state.FirstName} onChange={(e)=>{setState({
-            ...state,
-            FirstName: e.target.value
-          })}} />
+          <input
+            type="text"
+            className="email"
+            placeholder="First Name"
+            value={user.FirstName}
+            onChange={(e) => {
+              setuser({
+                ...user,
+                FirstName: e.target.value,
+              });
+            }}
+          />
           <br /> <br />
-          <input type="text" className="email" placeholder="Last Name" value={state.LastName} onChange={(e)=>{setState({
-            ...state,
-            LastName : e.target.value
-          })}} />
+          <input
+            type="text"
+            className="email"
+            placeholder="Last Name"
+            value={user.LastName}
+            onChange={(e) => {
+              setuser({
+                ...user,
+                LastName: e.target.value,
+              });
+            }}
+          />
           <br /> <br />
           <input
             type="email"
             className="email"
             placeholder="Email"
-            value={state.Email}
-            onChange={(e) => setState({
-              ...state,
-              Email: e.target.value
-            })}
-            />
+            value={user.Email}
+            onChange={(e) =>
+              setuser({
+                ...user,
+                Email: e.target.value,
+              })
+            }
+          />
           <br /> <br />
           <input
             type="password"
             className="email"
             placeholder="Password"
-            value={state.Pass}
-            onChange={(e) => setState({
-              ...state,
-             Pass: e.target.value
-             })}
+            value={user.Pass}
+            onChange={(e) =>
+              setuser({
+                ...user,
+                Pass: e.target.value,
+              })
+            }
           />
-             <br /> <br />
-          <select type="select" value={state.Select} onChange={(e)=>setState({
-            ...state,
-           Select: e.target.value
-          })}
-           className="ChooseOne">
+          <br /> <br />
+          <select
+            type="select"
+            value={user.Select}
+            onChange={(e) =>
+              setuser({
+                ...user,
+                AccountType: e.target.value,
+              })
+            }
+            className="ChooseOne"
+          >
             <option value="company"> Register as Company </option>
             <option value="student"> Register as Student </option>
           </select>
 
 
-    
+          <p className="register-text">
+              If you don't have an account register{" "}
+              <Link to="/">here!</Link>
+            </p>
 
-          {/* {type === "company" ? (
-            <>
-
-            </>
-          ): null} */}
-
-          <div className="AllBtn">
-            <Button type="Account" onClick={handleSignUp} className="btn3">
-              Register
+          <Button
+              type="submit"
+              size="lg"
+              className="submit-btn"
+            >
+              Submit
             </Button>
-            <Button onClick={props.handleToggle} className="btn">
-              {" "}
-              LogIn{" "}
-            </Button>
-          </div>
+      
         </div>
+      </form>
       </div>
-    </>
+      </div>
+      </div>
+  
   );
 };
 

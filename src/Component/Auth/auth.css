@@ -1,4 +1,6 @@
-
+*{
+	margin: 0px;
+}
 
 .HeightIncrease{
 	height: 710px;
@@ -65,6 +67,28 @@ text-align: center;
 		background: rgba(196, 196, 196, 0.5);
 		align-items: center;
 	display: inline-block;
+
+	}
+
+	.SignUPcontainer{
+		margin-top: 5%;
+		display: flex;
+		justify-content: center;
+	}
+
+	.LoginCOntainer{
+		margin-top: 5%;
+		display: flex;
+		justify-content: center;
+	}
+
+	.register-text{
+		margin-left: 32px;
+ 		   margin-top: 36px;
+	}
+
+	.submit-btn{
+		margin-left: 38%;
 
 	}
 
