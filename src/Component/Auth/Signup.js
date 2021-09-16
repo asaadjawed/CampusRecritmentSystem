@@ -32,7 +32,7 @@ const Signup = () => {
           Create Account
         </h1>
 
-        {/* {error && <Alert variant="danger">{error}</Alert>} */}
+        {error && <p variant="danger">{error}</p>}
 
 
         <form 

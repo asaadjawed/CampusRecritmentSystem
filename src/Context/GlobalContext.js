@@ -27,7 +27,7 @@ const GlobalProvider = ({ children }) => {
 
   const HandleLoginUser = (userData) => {
     const auth = getAuth();
-
+  
     const dbref = ref(getDatabase());
 
     //generate key from the login details
@@ -55,7 +55,7 @@ const GlobalProvider = ({ children }) => {
               Swal.fire({
                 icon: "success",
                 title: "Login Successful",
-              }).then(error => {
+              }).then((resp)=> {
 
               setuser({...userData})
               localStorage.setItem("user", JSON.stringify(userData));
@@ -67,9 +67,10 @@ const GlobalProvider = ({ children }) => {
               }else if(user.AccountType === "admin"){
                 history.push("/AdminDashboard")
               }
-            
         
             });
+         
+          
 
           })
             .catch((error) => {
