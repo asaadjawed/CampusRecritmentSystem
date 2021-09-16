@@ -2,7 +2,7 @@
 
 import react from 'react';
 
-const AdminLoginForm =()=>{
+const StudentDashboard =()=>{
 
     return(
 
@@ -12,7 +12,7 @@ const AdminLoginForm =()=>{
     )
 }
 
-export default AdminLoginForm
+export default StudentDashboard
 
 // import React, { useState } from 'react'
 // import { Card, Button } from 'react-bootstrap'

@@ -99,7 +99,7 @@ const Signup = () => {
           <br /> <br />
           <select
             type="select"
-            value={user.Select}
+            value={user.AccountType}
             onChange={(e) =>
               setuser({
                 ...user,

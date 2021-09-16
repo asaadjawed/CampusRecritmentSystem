@@ -40,7 +40,7 @@ const GlobalProvider = ({ children }) => {
     //get the user data from firebase
     console.log(userId);
 
-    get(child(dbref, `user/${userId}`))
+    get(child(dbref, `users/${userId}`))
       .then((snapshot) => {
         //if user avaailable then login
 
@@ -59,7 +59,15 @@ const GlobalProvider = ({ children }) => {
 
               setuser({...userData})
               localStorage.setItem("user", JSON.stringify(userData));
-              history.push("/StudentDashboard");
+
+              if(user.AccountType === "student"){
+                history.push("/StudentDashboard");
+              }else if(user.AccountType === "company"){
+                history.push("/CompanyDashboard")
+              }else if(user.AccountType === "admin"){
+                history.push("/AdminDashboard")
+              }
+            
         
             });
 

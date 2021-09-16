@@ -1,13 +1,13 @@
 import react from 'react';
-import AdminLogin from '../Component/Admin/Admin';
-import '../Component/StudentLogin/Login.css'
+import AdminDashboard from '../Component/AdminDashboard/AdminDashboard';
 
-const AdminLoginForm =()=>{
+
+const AdminDashboardPage =()=>{
 
     return(
 
-        <AdminLogin />
+        <AdminDashboard />
     )
 }
 
-export default AdminLoginForm
+export default AdminDashboardPage

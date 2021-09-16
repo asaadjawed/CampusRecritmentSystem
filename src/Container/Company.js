@@ -1,13 +1,13 @@
 import React from 'react';
-import CompanyLogin from '../Component/Company/Company';
-import '../Component/StudentLogin/Login.css'
+import CompanyDashboard from '../Component/CompanyDashBoard/CompanyDashboard';
 
 
-const CompanyLoginForm =()=>{
+
+const CompanyDashBoardPage =()=>{
     return(
 
-        <CompanyLogin />
+       <CompanyDashboard />
 
     )
 }
-export default CompanyLoginForm
+export default CompanyDashBoardPage
