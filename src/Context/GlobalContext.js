@@ -56,20 +56,19 @@ const GlobalProvider = ({ children }) => {
                 icon: "success",
                 title: "Login Successful",
               }).then((resp)=> {
-
-              setuser({...userData})
-              localStorage.setItem("user", JSON.stringify(userData));
-
-              if(user.AccountType === "student"){
+                
+             if(user.AccountType === "student"){
                 history.push("/StudentDashboard");
               }else if(user.AccountType === "company"){
                 history.push("/CompanyDashboard")
               }else if(user.AccountType === "admin"){
                 history.push("/AdminDashboard")
               }
+
+              setuser({...userData})
+              localStorage.setItem("user", JSON.stringify(userData));
         
-            });
-         
+               });
           
 
           })
@@ -125,7 +124,7 @@ const GlobalProvider = ({ children }) => {
           icon: "success",
           title: "Account Created",
           text: "You can now login",
-        }).then((resp) => history.push("/login"));
+        }).then((resp) => history.push("/"));
         // ...
       })
       // if there is an error show error message
@@ -142,7 +141,7 @@ const GlobalProvider = ({ children }) => {
     const auth = getAuth();
     auth.signOut().then(()=>{
       setuser({});
-      history.push("/login");
+      history.push("/");
     })
   }
 

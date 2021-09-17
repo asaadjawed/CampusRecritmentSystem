@@ -1,14 +1,17 @@
 import React from 'react';
-import StudentDashboard from '../Component/StudentDashboard/StudentDashboard';
+import StudentProfile from '../Component/StudentDashboard/StudentProfile';
 import '../Component/StudentDashboard/StudentDashboard.css'
+import StudentNav from '../Component/StudentDashboard/StudentNav';
 
 
 
 const StudentDashboardPage =()=>{
     return(
         <>
-       
-            <StudentDashboard />
+            
+         
+            <StudentNav />
+         <StudentProfile />
             </>
     )
 }

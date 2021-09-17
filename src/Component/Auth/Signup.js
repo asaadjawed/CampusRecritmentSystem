@@ -107,7 +107,8 @@ const Signup = () => {
               })
             }
             className="ChooseOne"
-          >
+          > 
+            <option>Open this select menu</option>
             <option value="company"> Register as Company </option>
             <option value="student"> Register as Student </option>
           </select>

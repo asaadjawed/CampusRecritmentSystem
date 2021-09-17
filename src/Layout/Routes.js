@@ -13,13 +13,14 @@ import AdminDashboardPage from "../Container/Admin";
 const Routes = () => {
   return (
     <>
-        <Switch>
+    <Switch>
+        
           <Route exact path="/" component={LoginFormPage} />
           <Route path="/SignUp" component={SignupFormPage} />
           <Route path="/StudentDashboard" component={StudentDashboardPage} />
           <Route path="/CompanyDashboard" component={CompanyDashBoardPage} />
           <Route path="/AdminDashboard" component={AdminDashboardPage} />
-        </Switch>
+          </Switch>
     </>
   );
 };
