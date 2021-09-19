@@ -13,7 +13,7 @@ import {
   } from "../firebase";
 
 
-  const StudentContext =createContext();
+ const StudentContext =createContext();
 
 
   const StudentProvider =({children})=>{
@@ -28,6 +28,7 @@ import {
             ...StudentProfileData,
 
         }
+      
         )}
 
     return(
@@ -37,6 +38,7 @@ import {
             handleProfileData:handleProfileData,
         }}>
             {children}
+        
         </StudentContext.Provider>
     )
 

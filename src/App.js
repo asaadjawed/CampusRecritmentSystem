@@ -9,12 +9,14 @@ const App =()=>{
     <>
 
    <GlobalProvider>
+   <StudentProvider>
      <Routes/>
+     </StudentProvider>
    </GlobalProvider>
 
-   <StudentProvider>
+  
      
-   </StudentProvider>
+ 
 
   </>
 

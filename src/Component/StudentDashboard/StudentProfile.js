@@ -1,10 +1,10 @@
 import react from "react";
 import { useState, useContext } from "react";
 import { Card, Button } from "react-bootstrap";
-import StudentContext from "../../Context/StudentContext"
+import { StudentContext } from "../../Context/StudentContext";
 const StudentProfile = () => {
 
-  const{handleProfileData, error} = useContext(StudentContext)
+  const {handleProfileData, error} = useContext(StudentContext)
   const [state, setState] = useState({
     EPNO: "",
     FirstName: "",
@@ -40,12 +40,14 @@ const StudentProfile = () => {
         onSubmit={(e)=>{
             e.preventDefault();
             handleProfileData(state);
+            console.log(handleProfileData(state))
+            
         }}
     
     >
 
 
-    </form>
+   
 
 
       <div className="Profilecontainer">
@@ -141,11 +143,12 @@ const StudentProfile = () => {
               onChange={(e) => setState({ ...state, Skills: e.target.value })}
             />{" "}
             <br /> <br />
-            <Button>Submit</Button>
+            <Button type="submit">Submit</Button>
             <Button>View Form</Button>
           </div>
         </div>
       </div>
+      </form>
     </div>
   );
 };

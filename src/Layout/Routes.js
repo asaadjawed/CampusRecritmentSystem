@@ -9,6 +9,8 @@ import SignupFormPage from "../Container/Signup";
 import StudentDashboardPage from "../Container/StudentDashboard";
 import CompanyDashBoardPage from "../Container/Company";
 import AdminDashboardPage from "../Container/Admin";
+import AddProfile from "../Container/StudentProfile";
+
 
 const Routes = () => {
   return (
@@ -20,6 +22,7 @@ const Routes = () => {
           <Route path="/StudentDashboard" component={StudentDashboardPage} />
           <Route path="/CompanyDashboard" component={CompanyDashBoardPage} />
           <Route path="/AdminDashboard" component={AdminDashboardPage} />
+          <Route path="/addProfile" component={AddProfile} />
           </Switch>
     </>
   );
