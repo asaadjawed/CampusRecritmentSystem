@@ -1,12 +1,12 @@
 import React from 'react';
-import CompanyDashboard from '../Component/CompanyDashBoard/CompanyDashboard';
+import CompanyNav from '../Component/CompanyDashBoard/CompanyNav';
 
 
 
 const CompanyDashBoardPage =()=>{
     return(
 
-       <CompanyDashboard />
+       <CompanyNav />
 
     )
 }

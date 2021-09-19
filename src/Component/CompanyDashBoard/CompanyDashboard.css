@@ -1,0 +1,27 @@
+*{
+    margin: 0px;
+    padding: 0px;
+}
+
+.container{
+    background-color: #343a40;
+    color: white;
+    height: 100px;
+    padding: 10px 15px;
+    
+}
+.NavClassCompany{
+    display: flex;
+    justify-content: space-between;
+}
+
+.Nav_Item_Company button{
+  display: inline;
+  font-size: 20px;
+  padding: 15px;
+  text-decoration: none;
+   
+}
+.Nav_Item_Company a {
+    text-decoration: none;
+}

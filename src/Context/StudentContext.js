@@ -3,6 +3,7 @@ import React from 'react'
 
 import { useState, useContext, useEffect, createContext } from 'react'
 import { useHistory } from 'react-router'
+import StudentProfile from '../Component/StudentDashboard/StudentProfile';
 
 import {
     getAuth,
@@ -18,14 +19,24 @@ import {
 
   const StudentProvider =({children})=>{
 
+    const HandleGenerateUniqueKey = (EPNo, email) => {
+        const emailKey = email.replace(".", "-");
+        return EPNo + "-" + emailKey;
+      };
+
 
     const handleProfileData=(StudentProfileData)=>{
         const auth = getAuth();
 
+
+        const UniqueKey = HandleGenerateUniqueKey(StudentProfileData.EPNO, StudentProfileData.Email)
+        
+
         const dbStd = getDatabase()
 
-        set(ref(dbStd, "StudentData/"),{
+        set(ref(dbStd, "StudentData/" + UniqueKey),{
             ...StudentProfileData,
+            UniqueKey: UniqueKey,
 
         }
       
