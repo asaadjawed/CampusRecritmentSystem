@@ -77,4 +77,8 @@
     font-size: 48px;
 } 
 
+.card-body{
+    background-color: grey;
+}
+
 

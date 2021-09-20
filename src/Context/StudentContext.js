@@ -12,6 +12,7 @@ import {
     set,
 
   } from "../firebase";
+  import Swal from 'sweetalert2';
 
 
  const StudentContext =createContext();
@@ -32,15 +33,26 @@ import {
         const UniqueKey = HandleGenerateUniqueKey(StudentProfileData.EPNO, StudentProfileData.Email)
         
 
-        const dbStd = getDatabase()
+        const dbStd = getDatabase();
 
-        set(ref(dbStd, "StudentData/" + UniqueKey),{
+       if( set(ref(dbStd, "StudentData/" + UniqueKey),{
             ...StudentProfileData,
             UniqueKey: UniqueKey,
 
         }
       
-        )}
+        ));
+
+       
+{Swal.fire({
+    icon: "success",
+    title: "Account Created",
+    text: "You can now login",
+  })
+
+}
+    }
+        
 
     return(
         <StudentContext.Provider 

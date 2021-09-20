@@ -1,27 +1,33 @@
 import React from 'react'
 import { GlobalProvider } from './Context/GlobalContext'
 import { StudentProvider } from './Context/StudentContext'
+import { CompanyProvider } from './Context/CompanyContext'
 import Routes from './Layout/Routes'
 
-const App =()=>{
+const App = () => {
 
-  return(
+  return (
     <>
 
-   <GlobalProvider>
-   <StudentProvider>
-     <Routes/>
-     </StudentProvider>
-   </GlobalProvider>
+      <GlobalProvider>
+        <StudentProvider>
+          <CompanyProvider>
 
-  
-     
- 
+            <Routes />
+            
+          </CompanyProvider>
+        </StudentProvider>
 
-  </>
+      </GlobalProvider>
+
+
+
+
+
+    </>
 
   )
-  
+
 }
 
 export default App

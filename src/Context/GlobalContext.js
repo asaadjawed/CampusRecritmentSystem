@@ -26,8 +26,9 @@ const GlobalProvider = ({ children }) => {
   const history = useHistory();
 
   const HandleLoginUser = (userData) => {
+    console.log(userData, "userData =>");
     const auth = getAuth();
-  
+
     const dbref = ref(getDatabase());
 
     //generate key from the login details
@@ -38,12 +39,11 @@ const GlobalProvider = ({ children }) => {
     );
 
     //get the user data from firebase
-    console.log(userId);
+    console.log(userId, 'userId =>');
 
     get(child(dbref, `users/${userId}`))
       .then((snapshot) => {
         //if user avaailable then login
-
         if (snapshot.exists()) {
           console.log(snapshot.val());
 
@@ -51,27 +51,30 @@ const GlobalProvider = ({ children }) => {
 
           signInWithEmailAndPassword(auth, userData.email, userData.password)
             .then((userCredential) => {
-        
+              console.log('data', user)
+
               Swal.fire({
                 icon: "success",
                 title: "Login Successful",
-              }).then((resp)=> {
-                
-             if(user.AccountType === "student"){
-                history.push("/StudentDashboard");
-              }else if(user.AccountType === "company"){
-                history.push("/CompanyDashboard")
-              }else if(user.AccountType === "admin"){
-                history.push("/AdminDashboard")
-              }
+              }).then((resp) => {
 
-              setuser({...userData})
-              localStorage.setItem("user", JSON.stringify(userData));
-        
-               });
-          
+                if (userData.AccountType === "student") {
+                  history.push("/StudentDashboard");
+                } else if (userData.AccountType === "company") {
+                  history.push("/CompanyDashboard")
+                } else if (userData.AccountType === "admin") {
+                  history.push("/AdminDashboard")
+                }
+                setuser({ ...userData })
+                localStorage.setItem("user", JSON.stringify(userData));
 
-          })
+
+
+
+              });
+
+
+            })
             .catch((error) => {
               const errorCode = error.code;
               const errorMessage = error.Message;
@@ -137,9 +140,9 @@ const GlobalProvider = ({ children }) => {
   };
 
 
-  const handleLogout = ()=>{
+  const handleLogout = () => {
     const auth = getAuth();
-    auth.signOut().then(()=>{
+    auth.signOut().then(() => {
       setuser({});
       history.push("/");
     })
@@ -150,7 +153,7 @@ const GlobalProvider = ({ children }) => {
     if (user) {
       setuser(user);
     }
-  } , [])
+  }, [])
 
   return (
     <GlobalContext.Provider
@@ -167,4 +170,4 @@ const GlobalProvider = ({ children }) => {
   );
 };
 
-export { GlobalContext, GlobalProvider};
+export { GlobalContext, GlobalProvider };
