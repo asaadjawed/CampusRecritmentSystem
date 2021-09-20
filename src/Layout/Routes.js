@@ -21,6 +21,7 @@ const Routes = () => {
           <Route path="/SignUp" component={SignupFormPage} />
           <Route path="/StudentDashboard" component={StudentDashboardPage} />
           <Route path="/CompanyDashboard" component={CompanyDashBoardPage} />
+          <Route ></Route>
           <Route path="/AdminDashboard" component={AdminDashboardPage} />
           <Route path="/addProfile" component={AddProfile} />
           </Switch>
