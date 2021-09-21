@@ -12,6 +12,7 @@ import AdminDashboardPage from "../Container/Admin";
 import AddProfile from "../Container/StudentProfile";
 import CompanyViewApp from "../Container/CompanyProfile";
 import CompanyJobCreation from "../Container/JobPost";
+import StudentViewVacancy from "../Container/StudentViewVacancy"
 
 
 const Routes = () => {
@@ -27,6 +28,7 @@ const Routes = () => {
           <Route path="/AdminDashboard" component={AdminDashboardPage} />
           <Route path="/addProfile" component={AddProfile} />
           <Route path="/JobPost" component={CompanyJobCreation}></Route>
+          <Route path="/ViewAvailableJobs" component={StudentViewVacancy}></Route>
           </Switch>
     </>
   );

@@ -5,65 +5,105 @@ import { useHistory } from 'react-router'
 import StudentProfile from '../Component/StudentDashboard/StudentProfile';
 
 import {
-    getAuth,
-    getDatabase,
-    ref,
-    set,
+  getAuth,
+  getDatabase,
+  ref,
+  set,
 
-  } from "../firebase";
-  import Swal from 'sweetalert2';
-
-
- const StudentContext =createContext();
+} from "../firebase";
+import Swal from 'sweetalert2';
+import { child, get } from 'firebase/database';
 
 
-  const StudentProvider =({children})=>{
-
-    const HandleGenerateUniqueKey = (EPNo, email) => {
-        const emailKey = email.replace(".", "-");
-        return EPNo + "-" + emailKey;
-      };
+const StudentContext = createContext();
 
 
-    const handleProfileData=(StudentProfileData)=>{
-        const auth = getAuth();
+const StudentProvider = ({ children }) => {
+
+  const [jobsVacancies, setjobsVacancies] = useState([])
+   
+
+  const HandleGenerateUniqueKey = (EPNo, email) => {
+    const emailKey = email.replace(".", "-");
+    return EPNo + "-" + emailKey;
+  };
 
 
-        const UniqueKey = HandleGenerateUniqueKey(StudentProfileData.EPNO, StudentProfileData.Email)
-        
+  const handleProfileData = (StudentProfileData) => {
+    const auth = getAuth();
 
-        const dbStd = getDatabase();
 
-       if( set(ref(dbStd, "StudentData/" + UniqueKey),{
-            ...StudentProfileData,
-            UniqueKey: UniqueKey,
+    const UniqueKey = HandleGenerateUniqueKey(StudentProfileData.EPNo, StudentProfileData.Email)
 
-        }
-      
-        ));
 
-       
-{Swal.fire({
-    icon: "success",
-    title: "Account Created",
-    text: "You can now login",
-  })
+    const dbStd = getDatabase();
 
-}
+    if (set(ref(dbStd, "StudentData/" + UniqueKey), {
+      ...StudentProfileData,
+      UniqueKey: UniqueKey,
+
     }
-        
 
-    return(
-        <StudentContext.Provider 
-        value={{
+    ));
 
-            handleProfileData:handleProfileData,
-        }}>
-            {children}
-        
-        </StudentContext.Provider>
-    )
 
+    {
+      Swal.fire({
+        icon: "success",
+        title: "Account Created",
+        text: "You can now login",
+      })
+
+    }
   }
 
-  export {StudentContext, StudentProvider}
+
+
+  const dbGetJob = ref(getDatabase());
+  const JobsGetData = ()=>{
+      get(child(dbGetJob, "Jobs/"))
+      .then((snapshot)=>{
+        if(snapshot.exists()){
+          console.log(snapshot.val(), 'snapshot');
+          let JobArray = [];
+          const jobsData = snapshot.val();
+
+          for(let key in jobsData){
+            JobArray.push({
+
+              JobType: jobsData[key].JobType,
+              Skills: jobsData[key].Skills,
+              Shift: jobsData[key].Shift,
+              Responsibility: jobsData[key].Responsibility,
+              Requirements: jobsData[key].Requirements
+
+
+            })
+          }
+          console.log(JobArray, "jobArray");
+          setjobsVacancies(JobArray);
+            
+        };
+    })
+    .catch((error)=>{
+      console.log(error)
+    })
+  }
+
+
+  return (
+    <StudentContext.Provider
+      value={{
+
+        handleProfileData: handleProfileData,
+        JobsGetData:JobsGetData,
+        jobsVacancies:jobsVacancies,
+      }}>
+      {children}
+
+    </StudentContext.Provider>
+  )
+
+}
+
+export { StudentContext, StudentProvider }

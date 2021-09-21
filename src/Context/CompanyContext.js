@@ -54,9 +54,37 @@ const CompanyProvider = ({ children }) => {
                 console.log(error);
             });
     }
+
+    const handlekey = (JobType, Skills)=>{
+        return JobType + "-" + Skills
+    }
+
+    const dbJob = getDatabase();
+
+    const JobsSetData =(StudentApplication)=>{
+
+        console.log(StudentApplication);
+
+        const JobUniqueKey  = handlekey(StudentApplication.JobType, StudentApplication.Skills)
+
+        if(set(ref(dbJob, "Jobs/" + JobUniqueKey),{
+
+            ...StudentApplication,
+            JobUniqueKey: JobUniqueKey,
+
+        }
+        ));
+
+    }
+
+
+
+
+
     return (
         <CompanyContext.Provider value={{
             ViewProfileData: ViewProfileData,
+            JobsSetData:JobsSetData,
             companiesData: companiesData,
         }}>
             {children}

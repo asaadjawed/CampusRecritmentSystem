@@ -1,10 +1,13 @@
 
-import React, { useState, useContext } from "react";
+import React, { useState, useContext, useEffect } from "react";
 import { Card, Button } from "react-bootstrap";
 import { StudentContext } from "../../Context/StudentContext";
 const StudentProfile = () => {
 
   const { handleProfileData, error } = useContext(StudentContext)
+ 
+
+
   const [state, setState] = useState({
     EPNO: "",
     FirstName: "",
@@ -60,7 +63,7 @@ const StudentProfile = () => {
                 placeholder="EPNO"
                 min="9"
                 value={state.EPNO}
-                onChange={(e) => setState({ ...state, EPNO: e.target.value })}
+                onChange={(e) => setState({ ...state , EPNO: e.target.value })}
               />{" "}
               <br /> <br />
               FirstName:{" "}
