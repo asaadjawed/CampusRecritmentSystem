@@ -10,8 +10,8 @@ const CompanyNav = () => {
             <h1>Company DashBoard</h1>
           </div>
           <div className="Nav_Item_Company">
-           <Link to="/CompanyNav"><button>Available Candidate</button></Link> 
-            <button>Job Creation</button>
+           <Link to="/StudentsResume"><button>Available Candidate</button></Link> 
+           <Link to="/JobPost"> <button>Job Creation</button></Link>
           </div>
         </nav>
       </div>

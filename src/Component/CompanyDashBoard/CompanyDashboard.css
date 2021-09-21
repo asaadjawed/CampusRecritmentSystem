@@ -25,3 +25,45 @@
 .Nav_Item_Company a {
     text-decoration: none;
 }
+
+.JobPostHeading{
+   text-align: center;
+}
+
+.JobPosting{
+    background-color: #343a40;
+  
+    height: 630px;
+    margin-top: 10px;
+}
+
+.jobForm{
+    width: 50%;
+    background-color: white;
+    height: 625px;
+    margin-left: 23%;
+  
+    border-radius: 10%;
+}
+
+.FormDetails{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    font-size: 40px;
+    font-family: ui-serif;
+    padding: 27px;
+}
+.InputDetails{
+    width: 56%;
+    border: 2px solid;
+    border-radius: 20px;
+    height: 54px;
+    text-align: center;
+
+}
+
+.SubmitBtn{
+    background-color: b;
+}

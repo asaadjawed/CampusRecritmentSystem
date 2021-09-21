@@ -1,9 +1,14 @@
 import { Button } from "bootstrap";
-import React from "react";
+import React, { useContext } from "react";
 import { Link } from "react-router-dom";
+import { GlobalContext } from "../../Context/GlobalContext";
 // import {UserImg} from '../../assets/'
 
+import { StudentContext } from "../../Context/StudentContext";
+
+
 const StudentNav = () => {
+  const {handleLogout}  = useContext(GlobalContext)
   return (
     <>
     <div className="container">
@@ -17,6 +22,7 @@ const StudentNav = () => {
            <Link to ="/addProfile"> <button>Add Profile</button></Link> 
             <button>View Jobs</button>
             <button>Apply for Jobs</button>
+            <button onClick={handleLogout}>Logout</button>
           
         </div>
       </nav>
