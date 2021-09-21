@@ -27,12 +27,12 @@ const ApplyForJobInfo = ()=>{
                         e.preventDefault();
                          StudentSetInformation(StudentInformation)
                     }} >
-                        Name :<input type="text" className="InputDetails" placeholder="Name" value={StudentInformation.Name} onChange={(e) => setStudentInformation({ ...StudentInformation, JobType: e.target.value})} />
-                        Email: <input type="text" className="InputDetails" placeholder="Email" value={StudentInformation.Email} onChange={(e) => setStudentInformation({...StudentInformation, Skills: e.target.value})} />
-                        CGPA : <input type="text" className="InputDetails" placeholder="CGPA" value={StudentInformation.CGPA} onChange={(e) => setStudentInformation({...StudentInformation, Shift: e.target.value})} />
-                        Skills: <input type="text" className="InputDetails" placeholder="Skills" value={StudentInformation.Skills} onChange={(e) => setStudentInformation({...StudentInformation, Responsibility:e.target.value})} />
+                        Name :<input type="text" className="InputDetails" placeholder="Name" value={StudentInformation.Name} onChange={(e) => setStudentInformation({ ...StudentInformation, Name: e.target.value})} />
+                        Email: <input type="text" className="InputDetails" placeholder="Email" value={StudentInformation.Email} onChange={(e) => setStudentInformation({...StudentInformation, Email: e.target.value})} />
+                        CGPA : <input type="text" className="InputDetails" placeholder="CGPA" value={StudentInformation.CGPA} onChange={(e) => setStudentInformation({...StudentInformation, CGPA: e.target.value})} />
+                        Skills: <input type="text" className="InputDetails" placeholder="Skills" value={StudentInformation.Skills} onChange={(e) => setStudentInformation({...StudentInformation, Skills:e.target.value})} />
 
-                        Availability: <input type="text" className="InputDetails" placeholder="Availability" value={StudentInformation.Availability} onChange={(e) => setStudentInformation({...StudentInformation, Requirements: e.target.value})} />
+                        Availability: <input type="text" className="InputDetails" placeholder="Availability" value={StudentInformation.Availability} onChange={(e) => setStudentInformation({...StudentInformation, Availability: e.target.value})} />
 
                         <Button type="submit">Submit</Button>
 

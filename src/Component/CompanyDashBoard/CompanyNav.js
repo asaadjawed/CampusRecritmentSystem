@@ -14,6 +14,7 @@ const CompanyNav = () => {
           <div className="Nav_Item_Company">
            <Link to="/StudentsResume"><button>Available Candidate</button></Link> 
            <Link to="/JobPost"> <button>Job Creation</button></Link>
+           <button>Applied Candidate</button>
            <button onClick={handleLogout} > LogOut </button>
           </div>
         </nav>
