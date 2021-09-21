@@ -31,15 +31,16 @@ const CompanyProvider = ({ children }) => {
                     const data = snapshot.val();
                     for (let key in data) {
                         arr.push({
-                            Address: data[key].FirstName,
-                            CGPA: data[key].LastName,
                             EPNO: data[key].EPNO,
-                            Education: data[key].Education,
+                            FirstName: data[key].FirstName,
+                            LastName: data[key].LastName,
                             Email: data[key].Email,
-                            FirstName: data[key].Address,
-                            LastName: data[key].CGPA,
-                            Skills: data[key].Skills,
+                            Address: data[key].Address,
+                            Education: data[key].Education,
                             UniversityName: data[key].UniversityName,
+                            CGPA: data[key].CGPA,
+                            Skills: data[key].Skills,
+         
 
 
                         })

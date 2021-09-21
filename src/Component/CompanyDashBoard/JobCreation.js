@@ -29,7 +29,7 @@ const JobCreation = () => {
                         e.preventDefault();
                         JobsSetData(jobsDetails)
                     }} >
-                        Job Type : <input type="text" className="InputDetails" placeholder="Job Type" value={jobsDetails.JobType} onChange={(e) => setjobsDetails({ ...jobsDetails, JobType: e.target.value})} />
+                        Job Type :<input type="text" className="InputDetails" placeholder="Job Type" value={jobsDetails.JobType} onChange={(e) => setjobsDetails({ ...jobsDetails, JobType: e.target.value})} />
                         Skills: <input type="text" className="InputDetails" placeholder="Skills" value={jobsDetails.Skills} onChange={(e) => setjobsDetails({...jobsDetails, Skills: e.target.value})} />
                         Shift : <input type="text" className="InputDetails" placeholder="Shift" value={jobsDetails.Shift} onChange={(e) => setjobsDetails({...jobsDetails, Shift: e.target.value})} />
                         Responsibility: <textarea type="text" className="InputDetails" placeholder="Responsibilities" value={jobsDetails.Responsibility} onChange={(e) => setjobsDetails({...jobsDetails, Responsibility:e.target.value})} />
