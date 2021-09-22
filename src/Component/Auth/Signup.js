@@ -111,11 +111,12 @@ const Signup = () => {
             <option>Open this select menu</option>
             <option value="company"> Register as Company </option>
             <option value="student"> Register as Student </option>
+           
           </select>
 
 
           <p className="register-text">
-              If you don't have an account register{" "}
+              If you have an account then Login{" "}
               <Link to="/">here!</Link>
             </p>
 

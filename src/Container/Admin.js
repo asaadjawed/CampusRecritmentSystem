@@ -1,12 +1,16 @@
 import react from 'react';
-import AdminDashboard from '../Component/AdminDashboard/AdminDashboard';
+import AdminNav from '../Component/AdminDashboard/AdminNav'
+import AdminProfile from '../Component/AdminDashboard/AdminProfile';
 
 
 const AdminDashboardPage =()=>{
 
     return(
+        <>
+            <AdminNav />
+            <AdminProfile />
 
-        <AdminDashboard />
+            </>
     )
 }
 

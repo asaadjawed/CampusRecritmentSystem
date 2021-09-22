@@ -62,8 +62,8 @@ const LoginForm = () => {
             >
               <option>Open this select menu</option>
               <option value="admin">Admin</option>
-              <option value="company"> Register as Company </option>
-              <option value="student"> Register as Student </option>
+              <option value="company"> login as Company </option>
+              <option value="student"> Login as Student </option>
             </select>
             </div>
 

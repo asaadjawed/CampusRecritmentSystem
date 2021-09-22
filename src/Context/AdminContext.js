@@ -11,16 +11,16 @@ import {
 } from "../firebase";
 
 
-const CompanyContext = createContext();
+const AdminContext = createContext();
 
-const CompanyProvider = ({ children }) => {
+const AdminProvider = ({children})=>{
 
-    const [companiesData, setCompanies] = useState([])
+    const [AdminCompanyViewData, setAdminCompanyViewData] = useState([])
 
 
     const dbcompany = ref(getDatabase());
 
-    const ViewProfileData = async () => {
+    const AdminViewStudentProfileData = async () => {
         const arr = [];
         try {
             const snapshot = await get(child(dbcompany, 'StudentData/'))
@@ -40,52 +40,26 @@ const CompanyProvider = ({ children }) => {
                         Skills: data[key].Skills,
                     })
                 }
-                setCompanies(arr)
+                setAdminCompanyViewData(arr)
             }
         } catch (error) {
             throw error
         }
+}
 
-    }
+return (
+    <AdminContext.Provider value={{
+        AdminViewStudentProfileData: AdminViewStudentProfileData,
+        AdminCompanyViewData: AdminCompanyViewData,
+    }}>
+        {children}
 
-    const handlekey = (JobType, Skills) => {
-        return JobType + "-" + Skills
-    }
-
-    const dbJob = getDatabase();
-
-    const JobsSetData = (StudentApplication) => {
-
-        console.log(StudentApplication);
-
-        const JobUniqueKey = handlekey(StudentApplication.JobType, StudentApplication.Skills)
-
-        if (set(ref(dbJob, "Jobs/" + JobUniqueKey), {
-
-            ...StudentApplication,
-            JobUniqueKey: JobUniqueKey,
-
-        }
-        ));
-
-    }
-
-
-
-
-
-    return (
-        <CompanyContext.Provider value={{
-            ViewProfileData: ViewProfileData,
-            JobsSetData: JobsSetData,
-            companiesData: companiesData,
-        }}>
-            {children}
-
-        </CompanyContext.Provider>
-    )
+    </AdminContext.Provider>
+)
 
 
 }
 
-export { CompanyProvider, CompanyContext }
+export { AdminProvider, AdminContext }
+
+
