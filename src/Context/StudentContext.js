@@ -12,7 +12,7 @@ import {
 
 } from "../firebase";
 import Swal from 'sweetalert2';
-import { child, Database, get } from 'firebase/database';
+import { child, Database, get, remove } from 'firebase/database';
 
 
 const StudentContext = createContext();
@@ -34,7 +34,7 @@ const StudentProvider = ({ children }) => {
     const auth = getAuth();
 
 
-    const UniqueKey = HandleGenerateUniqueKey(StudentProfileData.EPNo, StudentProfileData.Email)
+    const UniqueKey = HandleGenerateUniqueKey(StudentProfileData.EPNO, StudentProfileData.Email)
 
 
     const dbStd = getDatabase();
@@ -76,7 +76,8 @@ const StudentProvider = ({ children }) => {
               Skills: jobsData[key].Skills,
               Shift: jobsData[key].Shift,
               Responsibility: jobsData[key].Responsibility,
-              Requirements: jobsData[key].Requirements
+              Requirements: jobsData[key].Requirements,
+              JobUniqueKey: jobsData[key].JobUniqueKey,
 
 
             })
@@ -90,6 +91,14 @@ const StudentProvider = ({ children }) => {
       console.log(error)
     })
   }
+
+
+  const DeleteKey =(key)=>{
+
+  console.log(key,"key");   
+  remove(child(dbGetJob, `Jobs/${key}`))
+  } 
+
 
 
 
@@ -138,6 +147,7 @@ const StudentProvider = ({ children }) => {
         JobsGetData:JobsGetData,
         StudentSetInformation:StudentSetInformation,
         jobsVacancies:jobsVacancies,
+        DeleteKey:DeleteKey,
       }}>
       {children}
 

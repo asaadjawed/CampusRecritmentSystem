@@ -5,7 +5,7 @@ import { StudentContext } from "../../Context/StudentContext";
 const StudentProfile = () => {
 
   const { handleProfileData, error } = useContext(StudentContext)
- 
+
 
 
   const [state, setState] = useState({
@@ -18,6 +18,7 @@ const StudentProfile = () => {
     UniversityName: "",
     CGPA: "",
     Skills: "",
+
   });
 
   return (
@@ -61,9 +62,8 @@ const StudentProfile = () => {
                 type="number"
                 className="email"
                 placeholder="EPNO"
-                min="9"
                 value={state.EPNO}
-                onChange={(e) => setState({ ...state , EPNO: e.target.value })}
+                onChange={(e) => setState({ ...state, EPNO: e.target.value })}
               />{" "}
               <br /> <br />
               FirstName:{" "}

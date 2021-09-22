@@ -3,7 +3,7 @@ import { GlobalProvider } from './Context/GlobalContext'
 import { StudentProvider } from './Context/StudentContext'
 import { CompanyProvider } from './Context/CompanyContext'
 import Routes from './Layout/Routes'
-import { AdminContext } from './Context/AdminContext'
+import { AdminContext, AdminProvider } from './Context/AdminContext'
 
 const App = () => {
 
@@ -13,11 +13,11 @@ const App = () => {
       <GlobalProvider>
         <StudentProvider>
           <CompanyProvider>
-            <AdminContext>
+            {/* <AdminProvider> */}
 
               <Routes />
 
-            </AdminContext>
+            {/* </AdminProvider> */}
           </CompanyProvider>
         </StudentProvider>
 

@@ -8,6 +8,7 @@ import {
     child,
     get,
     ref,
+    remove,
 } from "../firebase";
 
 
@@ -19,6 +20,7 @@ const CompanyProvider = ({ children }) => {
 
 
     const dbcompany = ref(getDatabase());
+    const db = ref(getDatabase());
 
     const ViewProfileData = async () => {
         const arr = [];
@@ -38,6 +40,7 @@ const CompanyProvider = ({ children }) => {
                         UniversityName: data[key].UniversityName,
                         CGPA: data[key].CGPA,
                         Skills: data[key].Skills,
+                        UniqueKey: data[key].UniqueKey,
                     })
                 }
                 setCompanies(arr)
@@ -48,10 +51,22 @@ const CompanyProvider = ({ children }) => {
 
     }
 
+    ///Delete a key 
+    const DeleteKey = (key) => {
+        console.log(key, "use")
+        // debugger
+        remove(child(dbcompany, `StudentData/${key}`))
+    }
+
+
+
     const handlekey = (JobType, Skills) => {
         return JobType + "-" + Skills
     }
 
+
+
+    ///////////////////////////////////
     const dbJob = getDatabase();
 
     const JobsSetData = (StudentApplication) => {
@@ -79,6 +94,7 @@ const CompanyProvider = ({ children }) => {
             ViewProfileData: ViewProfileData,
             JobsSetData: JobsSetData,
             companiesData: companiesData,
+            DeleteKey: DeleteKey,
         }}>
             {children}
 

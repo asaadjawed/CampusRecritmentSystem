@@ -1,6 +1,6 @@
 import react from 'react';
 import AdminNav from '../Component/AdminDashboard/AdminNav'
-import AdminProfile from '../Component/AdminDashboard/AdminProfile';
+import '../Component/AdminDashboard/AdminDashboard.css'
 
 
 const AdminDashboardPage =()=>{
@@ -8,7 +8,6 @@ const AdminDashboardPage =()=>{
     return(
         <>
             <AdminNav />
-            <AdminProfile />
 
             </>
     )

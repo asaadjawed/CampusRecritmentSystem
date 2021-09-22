@@ -1,7 +1,7 @@
 import { initializeApp } from "firebase/app";
 import { getAuth , signInWithEmailAndPassword, createUserWithEmailAndPassword } from 'firebase/auth';
 
-import { getDatabase , ref , set, child, get } from "firebase/database";
+import { getDatabase , ref , set, child, get, remove } from "firebase/database";
 
 
 
@@ -31,4 +31,5 @@ export{
   set,
   child,
   get,
+  remove
 };

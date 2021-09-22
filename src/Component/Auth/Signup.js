@@ -111,6 +111,7 @@ const Signup = () => {
             <option>Open this select menu</option>
             <option value="company"> Register as Company </option>
             <option value="student"> Register as Student </option>
+            <option value="admin"> Register as Admin </option>
            
           </select>
 

@@ -8,12 +8,14 @@ import LoginFormPage from "../Container/Login";
 import SignupFormPage from "../Container/Signup";
 import StudentDashboardPage from "../Container/StudentDashboard";
 import CompanyDashBoardPage from "../Container/CompanyDasboard";
-import AdminDashboardPage from "../Container/Admin";
+import AdminDashboardPage from "../Container/AdminDashboard";
 import AddProfile from "../Container/StudentProfile";
 import CompanyViewApp from "../Container/CompanyProfile";
 import CompanyJobCreation from "../Container/JobPost";
 import StudentViewVacancy from "../Container/StudentViewVacancy"
 import ApplyForJob from "../Container/ApplyForJob";
+import AdminProfilePage from "../Container/AdminProfile";
+import AdminCmpnyPage from "../Container/AdminCmpnyPage";
 
 
 const Routes = () => {
@@ -31,6 +33,8 @@ const Routes = () => {
         <Route path="/JobPost" component={CompanyJobCreation}></Route>
         <Route path="/ViewAvailableJobs" component={StudentViewVacancy}></Route>
         <Route path="/ApplyStdnInfo" component={ApplyForJob}></Route>
+        <Route path="/AdminProfile" component={AdminProfilePage} ></Route>
+        <Route path="/AdminCmpnyViewData" component={AdminCmpnyPage}></Route>
       </Switch>
     </>
   );
