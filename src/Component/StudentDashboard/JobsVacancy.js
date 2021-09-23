@@ -22,6 +22,7 @@ const JobsVacancy = ()=>{
           return (
             <div key={key} class="card col-lg-4" style={{ width: '18rem', backgroundColor: 'red', marginTop: '1rem' }}>
               <div className="card-body">
+                <h1>Job Type</h1><br /> <br />
                 Job Type: <h5 className="card-title">{element.JobType}</h5><br /> <br />
                 Skills: <p className="card-text">{element.Skills}</p><br /> <br />
                 Shift: <p className="card-text">{element.Shift}</p><br /> <br />

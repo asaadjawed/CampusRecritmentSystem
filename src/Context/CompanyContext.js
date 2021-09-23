@@ -16,11 +16,12 @@ const CompanyContext = createContext();
 
 const CompanyProvider = ({ children }) => {
 
+
+    ////View Profile Data of Candidate 
     const [companiesData, setCompanies] = useState([])
 
 
     const dbcompany = ref(getDatabase());
-    const db = ref(getDatabase());
 
     const ViewProfileData = async () => {
         const arr = [];
@@ -65,6 +66,41 @@ const CompanyProvider = ({ children }) => {
     }
 
 
+    ///View Applied Candidate of Student
+    const [AppliedCandidatestate, setAppliedCandidatestate] = useState([])
+
+    const dbAppliedCandidate = ref(getDatabase());
+    
+    const AppliedCandidate = async () =>{
+        let AppliedCandidateArray =[]
+        try{
+            const snapshot = await get(child(dbAppliedCandidate, 'AppliedStudents/'))
+            if(snapshot.exists()){
+                console.log(snapshot.val(), "AppliedStudentsValue");
+                const AppliedCandidateData = snapshot.val();
+                for(let key in AppliedCandidateData){
+                    AppliedCandidateArray.push({
+                        Name: AppliedCandidateData[key].Name,
+                        Email: AppliedCandidateData[key].Email,
+                        CGPA: AppliedCandidateData[key].CGPA,
+                        Skills: AppliedCandidateData[key].Skills,
+                        Availability: AppliedCandidateData[key].Availability,
+                        AppliedKey: AppliedCandidateData[key].AppliedKey
+                    })
+                    setAppliedCandidatestate(AppliedCandidateArray)
+                }
+
+            }
+        } catch(error){
+            throw error;
+        }
+    }
+
+
+
+
+
+
 
     ///////////////////////////////////
     const dbJob = getDatabase();
@@ -95,6 +131,9 @@ const CompanyProvider = ({ children }) => {
             JobsSetData: JobsSetData,
             companiesData: companiesData,
             DeleteKey: DeleteKey,
+            AppliedCandidatestate:AppliedCandidatestate,
+            AppliedCandidate:AppliedCandidate,
+
         }}>
             {children}
 

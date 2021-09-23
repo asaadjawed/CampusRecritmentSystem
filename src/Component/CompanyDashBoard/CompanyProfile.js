@@ -19,7 +19,7 @@ const CompanyProfileView = () => {
         return (
           <div key={key} class="card col-lg-4" style={{ width: '18rem', backgroundColor: 'red', marginTop: '1rem' }}>
             <div className="card-body">
-      
+              <h1>Candidate Profiles</h1><br /> <br />
               EPNO: <h5 className="card-title">{element.EPNO}</h5> <br /> <br />
               FirstName: <p className="card-text">{element.FirstName}</p><br /> <br />
               LastName: <p className="card-text">{element.LastName}</p><br /> <br />

@@ -67,3 +67,9 @@
 .SubmitBtn{
     background-color: b;
 }
+
+
+.CandidateJobsPortal{
+    display: flex;
+    justify-content: space-evenly;
+}

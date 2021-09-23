@@ -21,7 +21,6 @@ const StudentNav = () => {
           
            <Link to ="/addProfile"> <button>Add Profile</button></Link> 
            <Link to="/ViewAvailableJobs"><button>View Jobs</button></Link> 
-            <button>Apply for Jobs</button>
             <button onClick={handleLogout}>Logout</button>
           
         </div>
