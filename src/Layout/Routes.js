@@ -16,6 +16,7 @@ import StudentViewVacancy from "../Container/StudentViewVacancy"
 import ApplyForJob from "../Container/ApplyForJob";
 import AdminProfilePage from "../Container/AdminProfile";
 import AdminCmpnyPage from "../Container/AdminCmpnyPage";
+import StudentAppliedCandidate from "../Container/StudentAppliedCandiate";
 
 
 const Routes = () => {
@@ -23,7 +24,7 @@ const Routes = () => {
     <>
       <Switch>
 
-        <Route exact path="/" component={LoginFormPage} />
+        <Route exact path="/" component={LoginFormPage} roles = {['stufrny']} />
         <Route path="/SignUp" component={SignupFormPage} />
         <Route path="/StudentDashboard" component={StudentDashboardPage} />
         <Route path="/CompanyDashboard" component={CompanyDashBoardPage} />
@@ -35,6 +36,7 @@ const Routes = () => {
         <Route path="/ApplyStdnInfo" component={ApplyForJob}></Route>
         <Route path="/AdminProfile" component={AdminProfilePage} ></Route>
         <Route path="/AdminCmpnyViewData" component={AdminCmpnyPage}></Route>
+        <Route path="/AppliedCandidate" component={StudentAppliedCandidate}></Route>
       </Switch>
     </>
   );
