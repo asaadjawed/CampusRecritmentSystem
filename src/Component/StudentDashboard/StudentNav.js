@@ -19,8 +19,8 @@ const StudentNav = () => {
         </div>
         <div className="Nav_Item">
           
-           <Link to ="/addProfile"> <button>Add Profile</button></Link> 
-           <Link to="/ViewAvailableJobs"><button>View Jobs</button></Link> 
+           <Link to ="/StudentDashboard/addProfile"> <button>Add Profile</button></Link> 
+           <Link to="/StudentDashboard/ViewAvailableJobs"><button>View Jobs</button></Link> 
             <button onClick={handleLogout}>Logout</button>
           
         </div>

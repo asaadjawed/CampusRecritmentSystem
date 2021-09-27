@@ -6,7 +6,7 @@ import StudentNav from '../Component/StudentDashboard/StudentNav'
 const ApplyForJob = ()=>{
     return(
         <>
-        <StudentNav />
+      
         <ApplyForJobInfo />
         </>
     )

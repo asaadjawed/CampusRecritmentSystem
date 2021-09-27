@@ -28,7 +28,7 @@ const JobsVacancy = ()=>{
                 Shift: <p className="card-text">{element.Shift}</p><br /> <br />
                 Responsibility: <p className="card-text">{element.Responsibility}</p><br /> <br />
                 Requirements: <p className="card-text">{element.Requirements}</p><br /> <br />
-               <Link to="/ApplyStdnInfo"> <Button>Apply</Button></Link>
+               <Link to="/StudentDashboard/ApplyStdnInfo"> <Button>Apply</Button></Link>
             
   
   

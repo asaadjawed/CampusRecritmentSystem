@@ -5,7 +5,6 @@ import StudentNav from "../Component/StudentDashboard/StudentNav";
 const AddProfile = ()=>{
     return(
         <>
-        <StudentNav />
         <StudentProfile />
         </>
     )

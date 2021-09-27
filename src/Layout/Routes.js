@@ -37,6 +37,7 @@ const Routes = () => {
         <Route path="/AdminProfile" component={AdminProfilePage} />
         <Route path="/AdminCmpnyViewData" component={AdminCmpnyPage} />
         <Route path="/AppliedCandidate" component={StudentAppliedCandidate} />
+        
         <Route>
           <h1>Not Found 403</h1>
         </Route>

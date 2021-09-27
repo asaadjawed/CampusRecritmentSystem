@@ -22,14 +22,14 @@ const StudentDashboardPage = () => {
         <>
 
 
-            <StudentNav />
+          
             {userData.AccountType === "student" ? (
                 <>
-
+             <StudentNav />    
                     <Switch>
-                        <Route exact path="/addProfile" component={AddProfile} />
-                        <Route exact path="/ApplyStdnInfo" component={ApplyForJob} />
-                        <Route exact path="/ViewAvailableJobs" component={StudentViewVacancy} />
+                        <Route path="/StudentDashboard/addProfile" component={AddProfile} />
+                        <Route  path="/StudentDashboard/ApplyStdnInfo" component={ApplyForJob} />
+                        <Route  path="/StudentDashboard/ViewAvailableJobs" component={StudentViewVacancy} />
                     </Switch>
 
                 </>
