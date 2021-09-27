@@ -1,17 +1,47 @@
-import React from 'react';
+import React , {useContext} from 'react';
 import '../Component/StudentDashboard/StudentDashboard.css'
 import StudentNav from '../Component/StudentDashboard/StudentNav';
+import { GlobalContext } from '../Context/GlobalContext';
+import AddProfile from './StudentProfile';
+import ApplyForJob from './ApplyForJob';
+import StudentViewVacancy from './StudentViewVacancy';
 
+import { Route, Switch } from "react-router-dom";
+import LoginForm from '../Component/Auth/Login';
 
 
 const StudentDashboardPage =()=>{
+
+    const { userData } = useContext(GlobalContext) 
+    console.log(userData, 'US')
+    
+
     return(
         <>
             
          
             <StudentNav />
-       
+            { userData.AccountType === "student" ? (
+                <> 
+
+            <Switch>
+            <Route exact path="/addProfile" component={AddProfile} />
+            <Route exact path="/ApplyStdnInfo" component={ApplyForJob} />
+            <Route exact path="/ViewAvailableJobs" component={StudentViewVacancy} />
+            </Switch>
+
+                </>
+            ) : (
+
+            <>
+                <LoginForm />
             </>
+            )
+           
+}
+
+            </>
+           
     )
 }
 

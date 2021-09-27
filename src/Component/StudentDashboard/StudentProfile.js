@@ -158,27 +158,3 @@ const StudentProfile = () => {
 };
 
 export default StudentProfile;
-
-//     const handleSubmit =()=>{
-
-//         const db = database;
-//         setData(refer(db, 'students/' + state.EPNO + state.Email),
-//         state);
-//     }
-
-//     const ViewForm =()=>{
-//         <div>
-//             <div>
-//                 <h1></h1>
-//             </div>
-//         </div>
-//     }
-
-//     return (
-
-//
-
-//     )
-// }
-
-// export default StudentDashboard

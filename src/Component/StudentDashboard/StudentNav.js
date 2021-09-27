@@ -26,14 +26,6 @@ const StudentNav = () => {
         </div>
       </nav>
       </div>
-
-
-
-
-      {/* <div className="StdView">
-        <h1 className="StdPortalHeading">WELCOME TO STUDENT PORTAL</h1>
-        <img></img>
-      </div> */}
       </>
  
   );

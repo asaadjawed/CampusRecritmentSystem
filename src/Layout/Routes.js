@@ -24,19 +24,22 @@ const Routes = () => {
     <>
       <Switch>
 
-        <Route exact path="/" component={LoginFormPage} roles = {['stufrny']} />
-        <Route path="/SignUp" component={SignupFormPage} />
+        <Route exact path="/" component={LoginFormPage} />
+        <Prot Route path="/SignUp" component={SignupFormPage} />
         <Route path="/StudentDashboard" component={StudentDashboardPage} />
         <Route path="/CompanyDashboard" component={CompanyDashBoardPage} />
-        <Route path="/StudentsResume" component={CompanyViewApp} ></Route>
+        <Route path="/StudentsResume" component={CompanyViewApp} />
         <Route path="/AdminDashboard" component={AdminDashboardPage} />
-        <Route path="/addProfile" component={AddProfile} />
-        <Route path="/JobPost" component={CompanyJobCreation}></Route>
-        <Route path="/ViewAvailableJobs" component={StudentViewVacancy}></Route>
-        <Route path="/ApplyStdnInfo" component={ApplyForJob}></Route>
-        <Route path="/AdminProfile" component={AdminProfilePage} ></Route>
-        <Route path="/AdminCmpnyViewData" component={AdminCmpnyPage}></Route>
-        <Route path="/AppliedCandidate" component={StudentAppliedCandidate}></Route>
+      
+        <Route path="/JobPost" component={CompanyJobCreation} />
+      
+       
+        <Route path="/AdminProfile" component={AdminProfilePage} />
+        <Route path="/AdminCmpnyViewData" component={AdminCmpnyPage} />
+        <Route path="/AppliedCandidate" component={StudentAppliedCandidate} />
+        {/* <Route>
+          <h1>Not Found 403</h1>
+        </Route> */}
       </Switch>
     </>
   );

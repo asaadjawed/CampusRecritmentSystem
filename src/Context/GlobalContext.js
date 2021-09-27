@@ -161,6 +161,7 @@ const GlobalProvider = ({ children }) => {
         HandleLoginUser: HandleLoginUser,
         handleSignupUser: handleSignupUser,
         handleLogout: handleLogout,
+        userData: user,
         error,
         user,
       }}
