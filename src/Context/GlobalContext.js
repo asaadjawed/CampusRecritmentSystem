@@ -20,7 +20,7 @@ const GlobalContext = createContext();
 //create a provider
 
 const GlobalProvider = ({ children }) => {
-  const [user, setuser] = useState("");
+  const [user, setuser] = useState({});
   const [error, seterror] = useState(null);
 
   const history = useHistory();
@@ -39,7 +39,7 @@ const GlobalProvider = ({ children }) => {
     );
 
     //get the user data from firebase
-    console.log(userId, 'userId =>');
+    console.log(userId, "userId =>");
 
     get(child(dbref, `users/${userId}`))
       .then((snapshot) => {
@@ -51,29 +51,23 @@ const GlobalProvider = ({ children }) => {
 
           signInWithEmailAndPassword(auth, userData.email, userData.password)
             .then((userCredential) => {
-              console.log('data', user)
+              console.log("data", user);
 
               Swal.fire({
                 icon: "success",
                 title: "Login Successful",
               }).then((resp) => {
-
                 if (userData.AccountType === "student") {
                   history.push("/StudentDashboard");
+                  localStorage.setItem("user", JSON.stringify(userData));
                 } else if (userData.AccountType === "company") {
-                  history.push("/CompanyDashboard")
+                  history.push("/CompanyDashboard");
                 } else if (userData.AccountType === "admin") {
-                  history.push("/AdminDashboard")
+                  history.push("/AdminDashboard");
                 }
-                setuser({ ...userData })
+                setuser({ ...userData });
                 localStorage.setItem("user", JSON.stringify(userData));
-
-
-
-
               });
-
-
             })
             .catch((error) => {
               const errorCode = error.code;
@@ -105,11 +99,7 @@ const GlobalProvider = ({ children }) => {
   const handleSignupUser = (userDetails) => {
     const auth = getAuth();
 
-    createUserWithEmailAndPassword(
-      auth,
-      userDetails.Email,
-      userDetails.Pass,
-    )
+    createUserWithEmailAndPassword(auth, userDetails.Email, userDetails.Pass)
       .then((userCredential) => {
         const key = HandleGenerateUniqueKey(
           userDetails.AccountType,
@@ -139,21 +129,20 @@ const GlobalProvider = ({ children }) => {
       });
   };
 
-
   const handleLogout = () => {
     const auth = getAuth();
     auth.signOut().then(() => {
       setuser({});
       history.push("/");
-    })
-  }
+    });
+  };
 
   useEffect(() => {
-    const user = JSON.parse(localStorage.getItem("users"));
+    const user = JSON.parse(localStorage.getItem("user"));
     if (user) {
       setuser(user);
     }
-  }, [])
+  }, []);
 
   return (
     <GlobalContext.Provider
