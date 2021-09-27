@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import React, { useContext } from "react";
 import "../Component/StudentDashboard/StudentDashboard.css";
 import StudentNav from "../Component/StudentDashboard/StudentNav";
@@ -5,6 +6,15 @@ import { GlobalContext } from "../Context/GlobalContext";
 import AddProfile from "./StudentProfile";
 import ApplyForJob from "./ApplyForJob";
 import StudentViewVacancy from "./StudentViewVacancy";
+=======
+import React, { useContext } from 'react';
+import '../Component/StudentDashboard/StudentDashboard.css'
+import StudentNav from '../Component/StudentDashboard/StudentNav';
+import { GlobalContext } from '../Context/GlobalContext';
+import AddProfile from './StudentProfile';
+import ApplyForJob from './ApplyForJob';
+import StudentViewVacancy from './StudentViewVacancy';
+>>>>>>> 15be0c48107bf54c2aff95801598bc073eda1fed
 
 import { Route, Switch } from "react-router-dom";
 import LoginForm from "../Component/Auth/Login";
