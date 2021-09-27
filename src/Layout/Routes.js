@@ -1,5 +1,3 @@
-
-
 import React from "react";
 
 import { Route, Switch } from "react-router-dom";
@@ -12,18 +10,16 @@ import AdminDashboardPage from "../Container/AdminDashboard";
 import AddProfile from "../Container/StudentProfile";
 import CompanyViewApp from "../Container/CompanyProfile";
 import CompanyJobCreation from "../Container/JobPost";
-import StudentViewVacancy from "../Container/StudentViewVacancy"
+import StudentViewVacancy from "../Container/StudentViewVacancy";
 import ApplyForJob from "../Container/ApplyForJob";
 import AdminProfilePage from "../Container/AdminProfile";
 import AdminCmpnyPage from "../Container/AdminCmpnyPage";
 import StudentAppliedCandidate from "../Container/StudentAppliedCandiate";
 
-
 const Routes = () => {
   return (
     <>
       <Switch>
-
         <Route exact path="/" component={LoginFormPage} />
         <Route path="/SignUp" component={SignupFormPage} />
         <Route path="/StudentDashboard" component={StudentDashboardPage} />
@@ -32,7 +28,6 @@ const Routes = () => {
         <Route path="/AdminDashboard" component={AdminDashboardPage} />
 
         <Route path="/JobPost" component={CompanyJobCreation} />
-
 
         <Route path="/AdminProfile" component={AdminProfilePage} />
         <Route path="/AdminCmpnyViewData" component={AdminCmpnyPage} />
