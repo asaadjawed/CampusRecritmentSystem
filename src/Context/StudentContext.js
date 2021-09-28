@@ -51,8 +51,8 @@ const StudentProvider = ({ children }) => {
     {
       Swal.fire({
         icon: "success",
-        title: "Account Created",
-        text: "You can now login",
+        title: "Data sent to Recruiter",
+        text: "You can now apply for job",
       })
 
     }
@@ -97,7 +97,13 @@ const StudentProvider = ({ children }) => {
 
   console.log(key,"key");   
   remove(child(dbGetJob, `Jobs/${key}`))
-  } 
+  .then(()=>{
+    Swal.fire({
+      icon:"info",
+      text:"Deleted"
+    })
+  })
+ }
 
 
 

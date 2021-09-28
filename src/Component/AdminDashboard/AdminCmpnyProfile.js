@@ -29,7 +29,7 @@ const AdminCmpnyProfile = () => {
                             Responsibility: <p className="card-text">{element.Responsibility}</p><br /> <br />
                             Requirements: <p className="card-text">{element.Requirements}</p><br /> <br />
                             <Button onClick={()=> DeleteKey(element.JobUniqueKey) } >Delete</Button>
-                            <Button>Forward</Button>
+                           
 
 
 

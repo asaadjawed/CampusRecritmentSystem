@@ -13,8 +13,8 @@ const AdminDashboard = () => {
                         <h1>Admin DashBoard</h1>
                     </div>
                     <div className="Nav_Item_Company">
-                        <Link to="/AdminProfile"> <button>Student Info</button></Link>
-                        <Link to="/AdminCmpnyViewData" ><button >Companies Info</button>   </Link> 
+                        <Link to="/AdminDashboard/AdminProfile"> <button>Student Info</button></Link>
+                        <Link to="/AdminDashboard/AdminCmpnyViewData" ><button >Companies Info</button>   </Link> 
                         <button onClick={handleLogout} > LogOut </button>
                     </div>
                 </nav>

@@ -27,7 +27,7 @@ const StudentDashboardPage = () => {
                 <>
              <StudentNav />    
                     <Switch>
-                        <Route path="/StudentDashboard/addProfile" component={AddProfile} />
+                        <Route exact path="/StudentDashboard/addProfile" component={AddProfile} />
                         <Route  path="/StudentDashboard/ApplyStdnInfo" component={ApplyForJob} />
                         <Route  path="/StudentDashboard/ViewAvailableJobs" component={StudentViewVacancy} />
                     </Switch>

@@ -37,7 +37,7 @@ const AdminProfile = () => {
                             CGPA: <p className="card-text">{element.CGPA}</p><br /> <br />
                             Skills: <p className="card-text">{element.Skills}</p><br /> <br />
                             <Button onClick={() => DeleteKey(element.UniqueKey)}>Delete</Button>
-                            <Button>Forward</Button>
+                           
 
 
 

@@ -1,6 +1,7 @@
 import { Button } from 'react-bootstrap'
 import React, { useContext, useState } from 'react'
 import { CompanyContext } from '../../Context/CompanyContext'
+import Swal from 'sweetalert2'
 
 
 const JobCreation = () => {
@@ -27,7 +28,17 @@ const JobCreation = () => {
                 <div className="jobForm">
                     <form className="FormDetails" onSubmit={(e) => {
                         e.preventDefault();
-                        JobsSetData(jobsDetails)
+
+                        if(jobsDetails.JobType!=="" && jobsDetails.Skills !== "" && jobsDetails.Shift!== "" && jobsDetails.Responsibility !== "" && jobsDetails.Requirements !==""){
+                            JobsSetData(jobsDetails)
+                        }else {
+                            Swal.fire({
+                                icon: "error",
+                                text : "Plz Create All field for Posting Job",
+                            })
+                        }
+
+                       
                     }} >
                         Job Type :<input type="text" className="InputDetails" placeholder="Job Type" value={jobsDetails.JobType} onChange={(e) => setjobsDetails({ ...jobsDetails, JobType: e.target.value})} />
                         Skills: <input type="text" className="InputDetails" placeholder="Skills" value={jobsDetails.Skills} onChange={(e) => setjobsDetails({...jobsDetails, Skills: e.target.value})} />

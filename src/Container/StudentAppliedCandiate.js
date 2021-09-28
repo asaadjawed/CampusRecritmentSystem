@@ -5,7 +5,7 @@ import CompanyNav from '../Component/CompanyDashBoard/CompanyNav'
 const StudentAppliedCandidate = ()=>{
     return(
         <>
-        <CompanyNav/>
+    
         <AppliedCandidate />
         </>
     )

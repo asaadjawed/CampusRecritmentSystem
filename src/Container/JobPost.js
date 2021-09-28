@@ -5,7 +5,7 @@ import JobCreation from '../Component/CompanyDashBoard/JobCreation'
 const CompanyJobCreation = ()=>{
     return(
         <div>
-            <CompanyNav />
+            
             <JobCreation />
         </div>
     )

@@ -1,12 +1,9 @@
-
 import React, { useState, useContext, useEffect } from "react";
 import { Card, Button } from "react-bootstrap";
+import Swal from "sweetalert2";
 import { StudentContext } from "../../Context/StudentContext";
 const StudentProfile = () => {
-
-  const { handleProfileData, error } = useContext(StudentContext)
-
-
+  const { handleProfileData, error } = useContext(StudentContext);
 
   const [state, setState] = useState({
     EPNO: "",
@@ -18,7 +15,6 @@ const StudentProfile = () => {
     UniversityName: "",
     CGPA: "",
     Skills: "",
-
   });
 
   return (
@@ -40,20 +36,28 @@ const StudentProfile = () => {
       </div>
 
       <form
-
         onSubmit={(e) => {
           e.preventDefault();
-          handleProfileData(state);
-          console.log(handleProfileData(state))
-
+          if (
+            state.EPNO !== "" &&
+            state.Education !== "" &&
+            state.Email !== "" &&
+            state.FirstName !== "" &&
+            state.LastName !== "" &&
+            state.Skills !== "" &&
+            state.UniversityName !== "" &&
+            state.CGPA !== ""
+          ) {
+            handleProfileData(state);
+            console.log(handleProfileData(state));
+          } else {
+            Swal.fire({
+              icon: "Error",
+              title: "Fill The Required Field",
+            });
+          }
         }}
-
       >
-
-
-
-
-
         <div className="Profilecontainer">
           <div className="ProfileForm">
             <div className="formAligndiv">
@@ -86,7 +90,9 @@ const StudentProfile = () => {
                 className="email"
                 placeholder="LastName"
                 value={state.LastName}
-                onChange={(e) => setState({ ...state, LastName: e.target.value })}
+                onChange={(e) =>
+                  setState({ ...state, LastName: e.target.value })
+                }
               />{" "}
               <br /> <br />
               Email:{" "}
@@ -104,7 +110,9 @@ const StudentProfile = () => {
                 className="email"
                 placeholder="FirstName"
                 value={state.Address}
-                onChange={(e) => setState({ ...state, Address: e.target.value })}
+                onChange={(e) =>
+                  setState({ ...state, Address: e.target.value })
+                }
               />{" "}
               <br /> <br />
               Education :{" "}
@@ -148,7 +156,7 @@ const StudentProfile = () => {
               />{" "}
               <br /> <br />
               <Button type="submit">Submit</Button>
-              <Button>View Form</Button>
+            
             </div>
           </div>
         </div>

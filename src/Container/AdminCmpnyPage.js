@@ -5,7 +5,7 @@ import AdminCmpnyProfile from '../Component/AdminDashboard/AdminCmpnyProfile'
 const AdminCmpnyPage = ()=>{
     return(
         <>
-            <AdminNav />
+      
             <AdminCmpnyProfile />
 
           

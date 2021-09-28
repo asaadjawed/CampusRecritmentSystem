@@ -6,7 +6,7 @@ import CompanyProfileView from '../Component/CompanyDashBoard/CompanyProfile'
 const CompanyViewApp = ()=>{
     return(
         <>
-        <CompanyNav />
+    
         <CompanyProfileView />
        </>
     )

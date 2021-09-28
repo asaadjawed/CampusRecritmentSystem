@@ -149,7 +149,7 @@ const GlobalProvider = ({ children }) => {
   }
 
   useEffect(() => {
-    const user = JSON.parse(localStorage.getItem("users"));
+    const user = JSON.parse(localStorage.getItem("user"));
     if (user) {
       setuser(user);
     }

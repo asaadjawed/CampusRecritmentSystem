@@ -7,7 +7,7 @@ const AdminProfilePage =()=>{
 
     return(
         <>
-            <AdminNav />
+           
             <AdminStdntProfile />
 
             </>
